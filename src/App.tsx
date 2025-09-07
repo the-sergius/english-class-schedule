@@ -1,14 +1,13 @@
 import Calendar from "./components/Calendar";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
 function App() {
-  return (
-    <>
-      <Calendar />
-      <Button variant="primary">Agendar cita</Button>
-      <Button variant="primary">Text</Button>
-    </>
-  );
+  let rol = "not-logged-in";
+  if (rol == "teacher") {
+    return <Calendar />;
+  } else if (rol == "student") {
+    return <Calendar />;
+  } else {
+    return <h1>Acceso denegado</h1>;
+  }
 }
 
 export default App;
