@@ -7,14 +7,9 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 const localizer = momentLocalizer(moment);
 const myEvents = [
   {
-    title: "Reunión de equipo",
+    title: "Sample event",
     start: new Date(2025, 8, 5, 10, 0), // año, mes (0-11), día, hora, minuto
     end: new Date(2025, 8, 5, 11, 0),
-  },
-  {
-    title: "Llamada con cliente",
-    start: new Date(2025, 8, 6, 14, 0),
-    end: new Date(2025, 8, 6, 15, 0),
   },
 ];
 export default function CustomCalendar(

@@ -1,7 +1,7 @@
 import Calendar from "../components/Calendar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
-function App() {
+function TeachersView() {
   return (
     <>
       <Calendar />
@@ -11,4 +11,4 @@ function App() {
   );
 }
 
-export default App;
+export default TeachersView;
