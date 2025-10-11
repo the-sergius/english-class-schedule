@@ -1,11 +1,28 @@
-English calendar for teachers and students app
-# TO RUN IN LOCAL DEVELOPER COMPUTER
-<details>
-<summary>Windows</summary>  
+# 📘 English Calendar App
+> A web application designed for teachers and students to organize and visualize academic classes in a shared calendar.
 
-## 1. Have nodejs
-## 2. Clone the project
-## 3. CMD> npm install
-## 4. CMD> npm run dev
+## 🚀 Features
+- Academic event tracking
+- Responsive interface for desktop and mobile
 
-</details>
+## 🧰 Tech Stack
+- Node.js
+- React
+- Vite
+- Bootstrap
+
+## ⚙️ Run Locally (Windows/Linux/MAC)
+
+```bash
+# 1. Ensure Node.js is installed
+# 2. Clone the project
+git clone https://github.com/yourusername/english-calendar.git
+
+# 3. Navigate into the folder
+cd english-class-schedule
+
+# 4. Install dependencies
+npm install
+
+# 5. Run the app
+npm run dev
