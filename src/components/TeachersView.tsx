@@ -5,8 +5,7 @@ function TeachersView() {
   return (
     <>
       <Calendar />
-      <Button variant="primary">Agendar cita</Button>
-      <Button variant="primary">Text</Button>
+      <Button style={{ marginTop: "10px", marginLeft: "10px", height: "5vh" }} variant="primary">Schedule class</Button>
     </>
   );
 }

@@ -35,11 +35,8 @@ export default function CustomCalendar(
           setCurrentView(newView as "month" | "week" | "day" | "agenda");
         }
       }}
-      style={{ height: 500 }}
+      style={{ height: "90vh", margin: "10px" }}
       onSelectEvent={(event) => alert(event.title)}
-      onSelectSlot={(slotInfo) =>
-        alert(`Slot: ${slotInfo.start} - ${slotInfo.end}`)
-      }
       selectable
     />
   );
