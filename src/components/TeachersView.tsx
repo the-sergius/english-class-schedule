@@ -1,4 +1,4 @@
-import Calendar from "../components/Calendar";
+import Calendar from "./StudentsView";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 function TeachersView() {
