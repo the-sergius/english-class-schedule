@@ -3,6 +3,7 @@ import type { CalendarProps } from "react-big-calendar";
 import moment from "moment";
 import { useState } from "react";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { Router } from "react-router-dom";
 
 const localizer = momentLocalizer(moment);
 const myEvents = [
@@ -21,6 +22,7 @@ export default function CustomCalendar(
   >("month");
 
   return (
+    <Router location="/studentsView" navigator={{} as any}>
     <BigCalendar
       {...props}
       localizer={localizer}
@@ -38,6 +40,7 @@ export default function CustomCalendar(
       style={{ height: "90vh", margin: "10px" }}
       onSelectEvent={(event) => alert(event.title)}
       selectable
-    />
+      />
+      </Router>
   );
 }

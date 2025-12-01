@@ -3,18 +3,17 @@ import TeachersView from "./TeachersView";
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Credentials from "../credentials/client_secret.json";
+import RoleView from "./RoleView";
  
 export default function Login(){      
-     const [token, setToken] = useState<string | null>(null);
-     const [events, setEvents] = useState([]);
-    // Al cargar la app, mira si vuelve de Google OAuth (hash fragment)
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (hash.includes("access_token")) {
-      const params = new URLSearchParams(hash.replace("#", ""));
-      const accessToken = params.get("access_token");
-      setToken(accessToken);
-
+    const [token, setToken] = useState(null);
+    useEffect(() => {
+      const hash = window.location.hash;
+      if (hash.includes("access_token")) {
+        const params = new URLSearchParams(hash.replace("#", ""));
+        const accessToken = params.get("access_token");
+        setToken(accessToken);
+        
       // Limpia el hash de la URL
       window.history.replaceState(null, "", window.location.pathname);
     }
@@ -27,13 +26,14 @@ export default function Login(){
     "https://accounts.google.com/o/oauth2/v2/auth?" +
     `client_id=${Credentials.web.client_id}` +
     "&response_type=token" +
-    `&redirect_uri=localhost:5173` +
+    `&redirect_uri=${encodeURIComponent("http://localhost:5173/")}` +
     "&scope=" +
     encodeURIComponent("https://www.googleapis.com/auth/calendar");
     
     window.location.href = authUrl;
   }
   
+  //LLEVAR A SU SITIOvvv
   // Obtener eventos del calendario
   async function loadEvents() {
     const res = await fetch(
@@ -48,7 +48,6 @@ export default function Login(){
     const data = await res.json();
     setEvents(data.items || []);
   }
-
   // Crear un evento
   async function createEvent() {
     const event = {
@@ -60,6 +59,7 @@ export default function Login(){
         dateTime: "2025-01-01T11:00:00-03:00",
       },
     };
+    //LLEVAR A SU SITIO^^^
 
     const res = await fetch(
       "https://www.googleapis.com/calendar/v3/calendars/primary/events",
@@ -79,11 +79,6 @@ export default function Login(){
   if (!token) {
       return <Button onClick={login}>Iniciar sesión con Google</Button>;
     } else {
-      let viewMode = "student";
-      if (viewMode == "student") {
-        return <Calendar />;
-      } else {
-        return <TeachersView />;
-      }
+      return <RoleView />;
     }
 }
